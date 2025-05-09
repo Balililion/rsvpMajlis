@@ -248,49 +248,33 @@
       color: #708090;
     }
 
-@media screen and (max-width: 768px) {
-  .tajuk-majlis {
+@media (max-width: 768px) {
+  .message-display {
+    max-width: 95%;
+    font-size: 22px;
+    padding: 10px;
+    max-height: 200px;
+    overflow: auto;
+  }
+
+  .message-display h3 {
     font-size: 28px;
-    letter-spacing: 3px;
   }
 
-  .pengantin-names .nama-lelaki,
-  .pengantin-names .nama-perempuan {
-    font-size: 45px;
-    letter-spacing: 2px;
-  }
-
-  .dan-symbol {
-    font-size: 40px;
-  }
-
-  .date-text,
-  .location-text {
-    font-size: 16px;
-    padding: 0 15px;
-    text-align: center;
-  }
-
-  .rsvp-btn {
-    font-size: 1rem;
-    padding: 8px 16px;
-    top: 70%;
+  body {
+    background-attachment: scroll;
+    background-size: cover;
   }
 
   .rsvp-form {
     width: 90%;
-    padding: 20px;
+    padding: 15px;
     font-size: 16px;
   }
 
-  .message-display {
-    font-size: 24px;
-    padding: 15px;
-    margin: 20px auto;
-  }
-
-  input, select, textarea {
-    font-size: 14px;
+  .rsvp-btn {
+    font-size: 1.2rem;
+    padding: 8px 16px;
   }
 }
 
