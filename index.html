@@ -173,7 +173,7 @@
   letter-spacing: 2px;
     }
 .rsvp-form-container {
-  display: none;
+   display: none !important;
   justify-content: center;
   text-align: left;
   align-items: center; 
@@ -224,7 +224,7 @@
     }
 
     .message-display {
-      display: block;
+      display: none;
       margin: 50px auto;
       max-width: 800px;
       max-height: 300px;
@@ -259,12 +259,12 @@
     background-size: 100vw 100vh;
     background-position: center top;
   }
-      .tajuk-majlis { font-size: 9vw; letter-spacing: 2px; top: 5%; }
+      .tajuk-majlis { font-size: 6vw; letter-spacing: 1px; top: 5%;  white-space: nowrap; overflow: hidden;  text-overflow: ellipsis;S }
       .nama-lelaki, .nama-perempuan { ont-size: 13vw; letter-spacing: 2px; }
       .dan-symbol { font-size: 10vw; }
-      .date-text { font-size: 5.5vw; top: 55%; text-align: center; }
-      .location-text { font-size: 4.5vw; top: 62%; line-height: 1.4; padding: 0 10px; }
-      .rsvp-btn { font-size: 1.3rem; padding: 10px 20px; top: 75%; }
+      .date-text { font-size: 3.5vw; top: 50%; text-align: center; }
+      .location-text { font-size: 2.8vw; top: 55%; line-height: 1.4; padding: 0 10px; }
+      .rsvp-btn { font-size: 1.3rem; padding: 10px 20px; top: 85%; }
       .rsvp-form-container {
         padding: 10px;
         height: auto;
@@ -280,7 +280,7 @@
         font-size: 16px;
         box-shadow: none;
       }
-      .rsvp-form-title {font-size: 6vw;}z
+      .rsvp-form-title {font-size: 6vw;}
       .message-display { max-width: 100%; font-size: 18px; padding: 12px; max-height: 250px; overflow: auto; }
       .message-display h3 { font-size: 24px; }
       input, select, textarea { font-size: 16px; }
@@ -318,9 +318,9 @@
 
   <!--  RSVP Form -->
   <div class="rsvp-form-container" id="rsvpFormContainer">
-  <div>
+  <div class="rsvp-form">
     <h2 class="rsvp-form-title">Répondez s'il vous plaît</h2>
-    <form class="rsvp-form" id="rsvp-form">
+    <form id="rsvp-form">
       <label for="name">Nama:</label>
       <input type="text" id="name" name="name" required>
 
@@ -344,7 +344,7 @@
 
       <button type="submit">Hantar</button>
     </form>
-    <div class="message-display" id="messageDisplay">
+    <div class="message-display" id="messageDisplay" style="display: none;">
       <h3>Ucapan Anda</h3>
       <div id="messageList"></div>
     </div>
@@ -365,6 +365,7 @@
       document.querySelector('.door-text').style.display = 'none';
       document.getElementById('rsvpFormContainer').style.display = 'block';
       document.getElementById('messageDisplay').style.display = 'block';
+      window.scrollTo(0, 0);
       document.body.style.overflow = 'auto';
     });
 
