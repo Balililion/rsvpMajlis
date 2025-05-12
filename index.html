@@ -5,26 +5,33 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Majlis Jemputan</title>
 
-  <!-- Fonts -->
+  <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Satisfy&family=Open+Sans:wght@300;400;600&family=Roboto:wght@400;700&family=Playfair+Display&family=Poppins&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&family=Lavishly+Yours&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Alike&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Josefin+Slab:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Tangerine:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel&family=Lavishly+Yours&family=Lora&family=Alex+Brush&family=Alike&family=Josefin+Slab&family=Cormorant+Garamond&family=Tangerine&display=swap" rel="stylesheet">
 
   <style>
     body {
-  font-family: 'Lora', serif;
-  margin: 0;
-  background-image: url('https://i.imgur.com/z74FUuk.png');
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center center;
-  background-attachment: scroll;
-  overflow-x: hidden;
+      font-family: 'Lora', serif;
+      margin: 0;
+      background-color: #fff6ec;
+      background-image: url('fff6ec-removebg.png');
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center 10%;
+      background-attachment: scroll;
+      overflow-x: hidden;
+    }
+
+    .texture-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      object-fit: cover;
+      z-index: 1;
+      opacity: 0.4;
+      pointer-events: none;
     }
 
     .door-left, .door-right {
@@ -32,7 +39,7 @@
       top: 0;
       width: 50%;
       height: 100%;
-  min-height: 100vh;
+      min-height: 100vh;
       z-index: 2;
       background-color: #e9e9e2;
       background-image: url('https://www.transparenttextures.com/patterns/gray-floral.png');
@@ -50,14 +57,13 @@
       position: absolute;
       width: 100%;
       height: 100%;
-      z-index: 1;
+      z-index: 5;
       opacity: 0;
       animation: fadeInText 2s ease-in 3s forwards;
     }
 
     @keyframes fadeInText { to { opacity: 1; } }
 
-    /* Tajuk Majlis */
     .tajuk-majlis {
       position: absolute;
       top: 5%;
@@ -71,10 +77,9 @@
       letter-spacing: 8px;
     }
 
-    /* Nama Pengantin */
     .pengantin-names {
       position: absolute;
-      top: 20%; 
+      top: 20%;
       left: 50%;
       transform: translateX(-50%);
       display: flex;
@@ -82,35 +87,24 @@
       align-items: center;
     }
 
-    .nama-lelaki {
-      position: relative;
+    .nama-lelaki, .nama-perempuan {
       font-family: 'Lora', serif;
       font-style: italic;
       font-size: 75px;
       color: #708090;
       font-weight: bold;
       letter-spacing: 5px;
-      margin-bottom: -10px;
     }
+
+    .nama-lelaki { margin-bottom: -10px; }
+    .nama-perempuan { margin-top: -30px; }
 
     .dan-symbol {
       font-family: 'Alex Brush', cursive;
       font-size: 65px;
       color: #708090;
-      margin: 0;
       letter-spacing: 5px;
       animation: fadeInSoft 3s ease-in-out;
-    }
-
-    .nama-perempuan {
-      position: relative;
-      font-family: 'Lora', serif;
-      font-style: italic;
-      font-size: 75px;
-      color: #708090;
-      font-weight: bold;
-      letter-spacing: 5px;
-      margin-top: -30px;
     }
 
     @keyframes fadeInSoft {
@@ -118,34 +112,31 @@
       100% { opacity: 1; transform: scale(1); }
     }
 
-    /* Tarikh */
     .date-text {
       position: absolute;
       top: 53%;
       left: 50%;
       transform: translateX(-50%);
-      font-family: 'alike', serif;
+      font-family: 'Alike', serif;
       font-size: 25px;
       font-weight: bold;
       letter-spacing: 5px;
       color: #708090;
     }
 
-    /* Lokasi */
     .location-text {
       position: absolute;
       top: 60%;
       left: 50%;
       transform: translateX(-50%);
       font-family: 'Josefin Slab', serif;
-      font-style : italic;
+      font-style: italic;
       font-size: 20px;
-      line-height: 1.5; 
+      line-height: 1.5;
       text-align: center;
       color: #708090;
     }
 
-    /* RSVP Button */
     .rsvp-btn {
       position: relative;
       top: 80%;
@@ -154,37 +145,34 @@
       background-color: #ffffff;
       color: #708090;
       font-family: 'Lora', serif;
-      font-style : italic;
+      font-style: italic;
       letter-spacing: 5px;
       padding: 10px 20px;
       border: ridge;
       border-radius: 8px;
       cursor: pointer;
       font-size: 1.5rem;
+      z-index: 6;
     }
 
     .rsvp-form-container {
       display: none;
       text-align: center;
       margin-top: 50px;
-      z-index:10;
+      z-index: 10;
       position: relative;
     }
 
     .rsvp-form {
       background-color: #fff6ec;
-      border-radius: 0;
       padding: 30px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
       width: 500px;
       max-width: 90%;
-      display: inline-block;
-      text-align: left;
       font-family: 'Cormorant Garamond', serif;
-      font-style : italic;
+      font-style: italic;
       font-weight: 700;
       color: #708090;
-       font-size: 20px;
+      font-size: 20px;
     }
 
     input, select, textarea {
@@ -194,39 +182,32 @@
       border-radius: 4px;
       border: 1px solid #ccc;
       font-family: 'Lora', serif;
-      font-style : italic;
+      font-style: italic;
       font-weight: 600;
-
     }
 
     button {
       background-color: #ffffff;
       color: #708090;
       font-family: 'Lora', serif;
-      font-style : italic;
+      font-style: italic;
       padding: 10px 15px;
       border: ridge;
       border-radius: 4px;
       cursor: pointer;
     }
 
-    button:hover {
-      background-color: #0056b3;
-    }
-
     .message-display {
       display: block;
       margin: 50px auto;
       max-width: 800px;
-      max-height:300px;
+      max-height: 300px;
       overflow: hidden;
-      position: relative;
       padding: 20px;
-
       background: rgba(255,255,255,0.8);
       border-radius: 12px;
       box-shadow: 0 0 10px rgba(0,0,0,0.2);
-      font-family: 'tangerine', cursive;
+      font-family: 'Tangerine', cursive;
       font-size: 35px;
       font-weight: 700;
       color: #708090;
@@ -234,9 +215,7 @@
 
     .message-display h3 {
       text-align: center;
-      font-family: 'tangerine', cursive;
-      font-size:40px;
-      color: #708090;
+      font-size: 40px;
     }
 
     .message-item {
@@ -248,96 +227,51 @@
     .message-item strong {
       color: #708090;
     }
-@media screen and (max-width: 768px) {
-  body {
-    background-position: top center;
-  }
-  .tajuk-majlis {
-    font-size: 10vw;
-    letter-spacing: 3px;
-  }
 
-  .pengantin-names .nama-lelaki,
-  .pengantin-names .nama-perempuan {
-    font-size: 12vw;
-    letter-spacing: 2px;
-  }
-
-  .dan-symbol {
-    font-size: 10vw;
-  }
-
-  .date-text {
-    font-size: 6vw;
-    padding: 0 15px;
-    text-align: center;
-  }
-.location-text {
-    font-size: 5vw;
-  }
-  .rsvp-btn {
-    font-size: 1.2rem;
-    padding: 6px 12px;
-    top: 70%;
-  }
-
-  .rsvp-form {
-    width: 90%;
-    padding: 12px;
-    font-size: 14px;
-  }
-
-  .message-display {
-    max-width: 90%;
-    font-size: 18px;    
-    padding: 8px;
-    max-height: 180px; 
-    overflow: auto;
-  }
-.message-display h3 {
-    font-size: 24px;
-}
-  input, select, textarea {
-    font-size: 14px;
-  }
-}
-
-
+    @media screen and (max-width: 768px) {
+      .tajuk-majlis { font-size: 10vw; letter-spacing: 3px; }
+      .nama-lelaki, .nama-perempuan { font-size: 12vw; letter-spacing: 2px; }
+      .dan-symbol { font-size: 10vw; }
+      .date-text { font-size: 6vw; padding: 0 15px; text-align: center; }
+      .location-text { font-size: 5vw; }
+      .rsvp-btn { font-size: 1.2rem; padding: 6px 12px; top: 70%; }
+      .rsvp-form { width: 90%; padding: 12px; font-size: 14px; }
+      .message-display { max-width: 90%; font-size: 18px; padding: 8px; max-height: 180px; overflow: auto; }
+      .message-display h3 { font-size: 24px; }
+      input, select, textarea { font-size: 14px; }
+    }
   </style>
 </head>
 <body>
 
-  <!-- Audio -->
+    <!-- Background Audio -->
   <audio id="bg-music" autoplay loop muted>
     <source src="everything.mp3" type="audio/mpeg">
     Your browser does not support the audio element.
   </audio>
 
-  <!-- Pintu -->
+  <!-- Pintu Animasi -->
   <div class="door-left"></div>
   <div class="door-right"></div>
 
   <!-- Teks Majlis -->
   <div class="door-text">
     <div class="tajuk-majlis">MAJLIS AKAD NIKAH</div>
-
     <div class="pengantin-names">
-  <span class="nama-lelaki">Fakhri</span>
-  <span class="dan-symbol">&</span>
-  <span class="nama-perempuan">Jimah</span>
+      <span class="nama-lelaki">Fakhri</span>
+      <span class="dan-symbol">&</span>
+      <span class="nama-perempuan">Jimah</span>
     </div>
-
     <div class="date-text">Sabtu, 22 Jun 2025</div>
     <div class="location-text">
-  <span>Off, PPR Wahyu, Wilayah Persekutuan</span><br>
-  <span>Jalan Sibu 18, Taman Wahyu</span><br>
-  <span>51200 Kuala Lumpur, Federal Territory of Kuala Lumpur</span>
-</div>
-
+      <span>Off, PPR Wahyu, Wilayah Persekutuan</span><br>
+      <span>Jalan Sibu 18, Taman Wahyu</span><br>
+      <span>51200 Kuala Lumpur</span>
+    </div>
     <button class="rsvp-btn" id="openRsvpForm">RSVP</button>
   </div>
 
-  <!-- RSVP -->
+  <!--  RSVP Form -->
   <div class="rsvp-form-container" id="rsvpFormContainer">
     <h2>Répondez s'il vous plaît</h2>
     <form class="rsvp-form" id="rsvp-form">
@@ -348,23 +282,23 @@
         <option value="Hadir">Hadir</option>
         <option value="Tidak Hadir">Tidak Hadir</option>
       </select><br>
-<label for="jumlah">Bilangan Kehadiran:</label>
-<select id="jumlah" name="jumlah" required>
-  <option value="1">1 manusia</option>
-  <option value="2">2 manusia</option>
-  <option value="3">3 manusia</option>
-  <option value="4">4 manusia</option>
-  <option value="5">5 manusia</option>
-</select><br>
+      <label for="jumlah">Bilangan Kehadiran:</label>
+      <select id="jumlah" name="jumlah" required>
+        <option value="1">1 manusia</option>
+        <option value="2">2 manusia</option>
+        <option value="3">3 manusia</option>
+        <option value="4">4 manusia</option>
+        <option value="5">5 manusia</option>
+      </select><br>
       <label for="message">Ucapan:</label>
       <textarea id="message" name="message" required></textarea><br>
       <button type="submit">Hantar</button>
     </form>
-  <div class="message-display" id="messageDisplay">
-    <h3>Ucapan Anda</h3>
-    <div id="messageList"></div>
+    <div class="message-display" id="messageDisplay">
+      <h3>Ucapan Anda</h3>
+      <div id="messageList"></div>
+    </div>
   </div>
- </div>
 
   <script>
     window.addEventListener('click', function () {
@@ -395,20 +329,19 @@
       this.reset();
     });
 
-   function updateMessages() {
-  const messageList = document.getElementById('messageList');
-  messageList.innerHTML = '';
-  responses.forEach(res => {
-    const msg = document.createElement('div');
-    msg.className = 'message-item';
-    msg.innerHTML = `
-      <div style="text-align: left;">${res.message}</div>
-      <div style="width: 100%; text-align: center; font-style: italic; margin-top: 5px;">– ${res.name}</div>
-    `;
-    messageList.appendChild(msg);
-  });
-}
+    function updateMessages() {
+      const messageList = document.getElementById('messageList');
+      messageList.innerHTML = '';
+      responses.forEach(res => {
+        const msg = document.createElement('div');
+        msg.className = 'message-item';
+        msg.innerHTML = `
+          <div style="text-align: left;">${res.message}</div>
+          <div style="width: 100%; text-align: center; font-style: italic; margin-top: 5px;">– ${res.name}</div>
+        `;
+        messageList.appendChild(msg);
+      });
+    }
   </script>
-
 </body>
 </html>
