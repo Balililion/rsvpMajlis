@@ -255,16 +255,35 @@
     }
 
     @media screen and (max-width: 768px) {
-      .tajuk-majlis { font-size: 10vw; letter-spacing: 3px; }
-      .nama-lelaki, .nama-perempuan { font-size: 12vw; letter-spacing: 2px; }
+        body {
+    background-size: 100vw 100vh;
+    background-position: center top;
+  }
+      .tajuk-majlis { font-size: 9vw; letter-spacing: 2px; top: 5%; }
+      .nama-lelaki, .nama-perempuan { ont-size: 13vw; letter-spacing: 2px; }
       .dan-symbol { font-size: 10vw; }
-      .date-text { font-size: 6vw; padding: 0 15px; text-align: center; }
-      .location-text { font-size: 5vw; }
-      .rsvp-btn { font-size: 1.2rem; padding: 6px 12px; top: 70%; }
-      .rsvp-form { width: 90%; padding: 12px; font-size: 14px; }
-      .message-display { max-width: 90%; font-size: 18px; padding: 8px; max-height: 180px; overflow: auto; }
+      .date-text { font-size: 5.5vw; top: 55%; text-align: center; }
+      .location-text { font-size: 4.5vw; top: 62%; line-height: 1.4; padding: 0 10px; }
+      .rsvp-btn { font-size: 1.3rem; padding: 10px 20px; top: 75%; }
+      .rsvp-form-container {
+        padding: 10px;
+        height: auto;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+      }
+      .rsvp-form {
+        width: 100%;
+        max-width: 100%;
+        padding: 20px;
+        font-size: 16px;
+        box-shadow: none;
+      }
+      .rsvp-form-title {font-size: 6vw;}z
+      .message-display { max-width: 100%; font-size: 18px; padding: 12px; max-height: 250px; overflow: auto; }
       .message-display h3 { font-size: 24px; }
-      input, select, textarea { font-size: 14px; }
+      input, select, textarea { font-size: 16px; }
     }
   </style>
 </head>
