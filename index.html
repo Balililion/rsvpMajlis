@@ -156,24 +156,42 @@
       z-index: 6;
     }
 
-    .rsvp-form-container {
-      display: none;
-      text-align: center;
-      margin-top: 50px;
-      z-index: 10;
-      position: relative;
+ .rsvp-form-title {
+  text-align: center;
+  font-family: 'Cinzel', serif;
+  font-size: 30px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  color: #000000;
+  letter-spacing: 2px;
     }
+.rsvp-form-container {
+  display: none;
+  justify-content: center;
+  text-align: left;
+  align-items: center; 
+  height: 100vh;
+  width: 100%; 
+  padding: 20px; 
+  box-sizing: border-box;
+    }
+
 
     .rsvp-form {
       background-color: #fff6ec;
       padding: 30px;
-      width: 500px;
-      max-width: 90%;
+      width: 35%;
+      max-width: 600px;
+      margin: 0 auto;
       font-family: 'Cormorant Garamond', serif;
       font-style: italic;
       font-weight: 700;
       color: #708090;
       font-size: 20px;
+      flex-direction: column;
+      border-radius: 8px;
+      gap: 15px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     }
 
     input, select, textarea {
@@ -274,15 +292,18 @@
 
   <!--  RSVP Form -->
   <div class="rsvp-form-container" id="rsvpFormContainer">
-    <h2>Répondez s'il vous plaît</h2>
+  <div>
+    <h2 class="rsvp-form-title">Répondez s'il vous plaît</h2>
     <form class="rsvp-form" id="rsvp-form">
       <label for="name">Nama:</label>
-      <input type="text" id="name" name="name" required><br>
+      <input type="text" id="name" name="name" required>
+
       <label for="attendance">Kehadiran:</label>
       <select id="attendance" name="attendance" required>
         <option value="Hadir">Hadir</option>
         <option value="Tidak Hadir">Tidak Hadir</option>
-      </select><br>
+      </select>
+
       <label for="jumlah">Bilangan Kehadiran:</label>
       <select id="jumlah" name="jumlah" required>
         <option value="1">1 manusia</option>
@@ -290,9 +311,11 @@
         <option value="3">3 manusia</option>
         <option value="4">4 manusia</option>
         <option value="5">5 manusia</option>
-      </select><br>
+      </select>
+
       <label for="message">Ucapan:</label>
-      <textarea id="message" name="message" required></textarea><br>
+      <textarea id="message" name="message" required></textarea>
+
       <button type="submit">Hantar</button>
     </form>
     <div class="message-display" id="messageDisplay">
