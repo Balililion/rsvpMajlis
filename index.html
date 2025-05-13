@@ -6,8 +6,13 @@
   <title>Majlis Jemputan</title>
 
   <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Satisfy&family=Open+Sans:wght@300;400;600&family=Roboto:wght@400;700&family=Playfair+Display&family=Poppins&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel&family=Lavishly+Yours&family=Lora&family=Alex+Brush&family=Alike&family=Josefin+Slab&family=Cormorant+Garamond&family=Tangerine&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Alike&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Josefin+Slab:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Tangerine:wght@400;700&display=swap" rel="stylesheet">
 
   <style>
     body {
@@ -21,13 +26,12 @@
       background-attachment: fixed;
       overflow-x: hidden;
       animation: zoomBg 20s ease-in-out infinite;
-}
+    }
+
     @keyframes zoomBg {
-  0% {background-size: 100%;}
-  50% {background-size: 110%;}
-  100% {background-size: 100%;}
-}
-     
+      0% {background-size: 100%;}
+      50% {background-size: 110%;}
+      100% {background-size: 100%;}
     }
 
     .texture-overlay {
@@ -140,6 +144,7 @@
       font-family: 'Josefin Slab', serif;
       font-style: italic;
       font-size: 20px;
+      font-weight: 600;
       line-height: 1.5;
       text-align: center;
       color: #708090;
@@ -163,26 +168,16 @@
       z-index: 6;
     }
 
- .rsvp-form-title {
-  text-align: center;
-  font-family: 'Cinzel', serif;
-  font-size: 30px;
-  font-weight: 700;
-  margin-bottom: 20px;
-  color: #000000;
-  letter-spacing: 2px;
+    .rsvp-form-container {
+      display: none;
+      justify-content: center;
+      text-align: left;
+      align-items: center;
+      height: 100vh;
+      width: 100%;
+      padding: 20px;
+      box-sizing: border-box;
     }
-.rsvp-form-container {
-   display: none;
-  justify-content: center;
-  text-align: left;
-  align-items: center; 
-  height: 100vh;
-  width: 100%; 
-  padding: 20px; 
-  box-sizing: border-box;
-    }
-
 
     .rsvp-form {
       background-color: #fff6ec;
@@ -253,8 +248,7 @@
     .message-item strong {
       color: #708090;
     }
-
-    @media screen and (max-width: 768px) {
+@media screen and (max-width: 768px) {
     body {
     background-color: #fff6ec;
       background-image: url('Untitled_design__1_-removebg.png');
@@ -267,11 +261,12 @@
 
   }
       .tajuk-majlis { font-size: 6vw; letter-spacing: 1px; top: 5%;  white-space: nowrap; overflow: hidden;  text-overflow: ellipsis;S }
-      .nama-lelaki, .nama-perempuan { ont-size: 13vw; letter-spacing: 2px; }
+      .nama-lelaki, .nama-perempuan { font-size: 13vw; letter-spacing: 2px; }
       .dan-symbol { font-size: 10vw; }
-      .date-text { font-size: 3.5vw; top: 50%; text-align: center; }
-      .location-text { font-size: 2.8vw; top: 55%; line-height: 1.4; padding: 0 10px; }
-      .rsvp-btn { font-size: 1.3rem; padding: 10px 20px; top: 85%; }
+      .date-text { font-size: 5vw; top: 50%; text-align: center; position: relative; }
+      .location-text { font-size: 4vw; top: 55%; line-height: 1.6; padding: 0 10px; position: relative; }
+      .location-text div {display: block;}
+      .rsvp-btn { font-size: 1.3rem; padding: 10px 20px; top: 65%; }
       .rsvp-form-container {
         padding: 10px;
         height: auto;
@@ -281,8 +276,8 @@
         justify-content: flex-start;
       }
       .rsvp-form {
-        width: 100%;
-        max-width: 100%;
+        width: 90%;
+        max-width: 400px;
         padding: 20px;
         font-size: 16px;
         box-shadow: none;
@@ -292,21 +287,18 @@
       .message-display h3 { font-size: 24px; }
       input, select, textarea { font-size: 16px; }
     }
+
   </style>
 </head>
 <body>
-
-    <!-- Background Audio -->
   <audio id="bg-music" autoplay loop muted>
     <source src="everything.mp3" type="audio/mpeg">
     Your browser does not support the audio element.
   </audio>
 
-  <!-- Pintu Animasi -->
   <div class="door-left"></div>
   <div class="door-right"></div>
 
-  <!-- Teks Majlis -->
   <div class="door-text">
     <div class="tajuk-majlis">MAJLIS AKAD NIKAH</div>
     <div class="pengantin-names">
@@ -314,56 +306,92 @@
       <span class="dan-symbol">&</span>
       <span class="nama-perempuan">Jimah</span>
     </div>
-    <div class="date-text">Sabtu, 22 Jun 2025</div>
+    <div class="date-text">Ahad, 22 Jun 2025</div>
     <div class="location-text">
-      <span>Off, PPR Wahyu, Wilayah Persekutuan</span><br>
-      <span>Jalan Sibu 18, Taman Wahyu</span><br>
-      <span>51200 Kuala Lumpur</span>
+      <div>Off, PPR Wahyu, Wilayah Persekutuan</div>
+      <div>Jalan Sibu 18, Taman Wahyu</div>
+      <div>51200 Kuala Lumpur</div>
     </div>
     <button class="rsvp-btn" id="openRsvpForm">RSVP</button>
   </div>
 
-  <!--  RSVP Form -->
- <div class="rsvp-form-container" id="rsvpFormContainer">
-  <h2 class="rsvp-form-title">Répondez s'il vous plaît</h2>
-  <form class="rsvp-form" id="rsvp-form">
-    <label for="name">Nama:</label>
-    <input type="text" id="name" name="name" required>
+  <div class="rsvp-form-container" id="rsvpFormContainer">
+    <h2 class="rsvp-form-title">Répondez s'il vous plaît</h2>
+    <form class="rsvp-form" id="rsvp-form">
+      <label for="name">Nama:</label>
+      <input type="text" id="name" name="name" required>
 
-    <label for="attendance">Kehadiran:</label>
-    <select id="attendance" name="attendance" required>
-      <option value="Hadir">Hadir</option>
-      <option value="Tidak Hadir">Tidak Hadir</option>
-    </select>
+      <label for="attendance">Kehadiran:</label>
+      <select id="attendance" name="attendance" required>
+        <option value="Hadir">Hadir</option>
+        <option value="Tidak Hadir">Tidak Hadir</option>
+      </select>
 
-    <label for="jumlah">Bilangan Kehadiran:</label>
-    <select id="jumlah" name="jumlah" required>
-      <option value="1">1 manusia</option>
-      <option value="2">2 manusia</option>
-      <option value="3">3 manusia</option>
-      <option value="4">4 manusia</option>
-      <option value="5">5 manusia</option>
-    </select>
+      <label for="jumlah">Bilangan Kehadiran:</label>
+      <select id="jumlah" name="jumlah" required>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+      </select>
 
-    <label for="message">Ucapan:</label>
-    <textarea id="message" name="message" required></textarea>
+      <label for="message">Ucapan:</label>
+      <textarea id="message" name="message" rows="4" required></textarea>
 
-    <button type="submit">Hantar</button>
-  </form>
-  <div class="message-display" id="messageDisplay" style="display: none;">
-    <h3>Ucapan Anda</h3>
+      <button type="submit">Hantar</button>
+    </form>
+  </div>
+
+  <div class="message-display" id="messageDisplay">
+    <h3>Ucapan Terkini</h3>
     <div id="messageList"></div>
   </div>
-</div>
 
   <script>
-    window.addEventListener('click', function () {
-      const audio = document.getElementById('bg-music');
-      if (audio.paused) {
-        audio.muted = false;
-        audio.play().catch(e => console.log('Autoplay diblokir'));
-      }
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbzYh3B69pTbVReoYYMrGcxE9ukmJJ-iML44npcY3priew-2UOND_yEDh2Pr6R-0fkJhmg/exec';  // Gantikan dengan URL Web App Anda
+    const rsvpForm = document.getElementById('rsvp-form');
+    const messageDisplay = document.getElementById('messageDisplay');
+    const messageList = document.getElementById('messageList');
+    const responses = [];
+
+    rsvpForm.addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      const data = {
+        name: document.getElementById('name').value,
+        attendance: document.getElementById('attendance').value,
+        jumlah: document.getElementById('jumlah').value,
+        message: document.getElementById('message').value
+      };
+
+      fetch(scriptURL, {
+        method: 'POST',
+        body: JSON.stringify(data)
+      })
+      .then(res => res.json())
+      .then(() => {
+        getMessages(); // refresh message list
+        rsvpForm.reset();
+      })
+      .catch(error => alert('Gagal hantar: ' + error.message));
     });
+
+    function getMessages() {
+      fetch(scriptURL)
+        .then(res => res.json())
+        .then(data => {
+          messageList.innerHTML = '';
+          data.reverse().forEach(res => {
+            const msg = document.createElement('div');
+            msg.className = 'message-item';
+            msg.innerHTML = `
+              <div style="text-align: left;">${res.message}</div>
+              <div style="width: 100%; text-align: center; font-style: italic; margin-top: 5px;">– ${res.name}</div>
+            `;
+            messageList.appendChild(msg);
+          });
+        });
+    }
 
     document.getElementById('openRsvpForm').addEventListener('click', function () {
       document.querySelector('.door-left').style.display = 'none';
@@ -372,32 +400,8 @@
       document.getElementById('rsvpFormContainer').style.display = 'block';
       document.getElementById('messageDisplay').style.display = 'block';
       document.body.style.overflow = 'auto';
+      getMessages(); // Load existing messages
     });
-
-    const responses = [];
-    document.getElementById('rsvp-form').addEventListener('submit', function (e) {
-      e.preventDefault();
-      const name = document.getElementById('name').value;
-      const message = document.getElementById('message').value;
-      const jumlah = document.getElementById('jumlah').value;
-      responses.unshift({ name, message, jumlah });
-      updateMessages();
-      this.reset();
-    });
-
-    function updateMessages() {
-      const messageList = document.getElementById('messageList');
-      messageList.innerHTML = '';
-      responses.forEach(res => {
-        const msg = document.createElement('div');
-        msg.className = 'message-item';
-        msg.innerHTML = `
-          <div style="text-align: left;">${res.message}</div>
-          <div style="width: 100%; text-align: center; font-style: italic; margin-top: 5px;">– ${res.name}</div>
-        `;
-        messageList.appendChild(msg);
-      });
-    }
   </script>
 </body>
 </html>
