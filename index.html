@@ -84,7 +84,7 @@
       transform: translateX(-50%);
       font-family: 'Cinzel', serif;
       font-size: 48px;
-      color: #333366;
+      color: #4b5563;
       font-weight: 400;
       text-align: center;
       letter-spacing: 8px;
@@ -104,7 +104,7 @@
       font-family: 'Lora', serif;
       font-style: italic;
       font-size: 75px;
-      color: #333366;
+      color: #1f2937;
       font-weight: bold;
       letter-spacing: 5px;
     }
@@ -115,7 +115,7 @@
     .dan-symbol {
       font-family: 'Alex Brush', cursive;
       font-size: 65px;
-      color: #333366;
+      color: #1f2937;
       letter-spacing: 5px;
       animation: fadeInSoft 3s ease-in-out;
     }
@@ -134,7 +134,7 @@
       font-size: 25px;
       font-weight: bold;
       letter-spacing: 5px;
-      color: #333366;
+      color: #4b5563;
     }
 
     .location-text {
@@ -148,7 +148,7 @@
       font-weight: 600;
       line-height: 1.5;
       text-align: center;
-      color: #333366;
+      color: #6b7820;
     }
 
     .rsvp-btn {
@@ -157,7 +157,7 @@
       left: 50%;
       transform: translateX(-50%);
       background-color: #ffffff;
-      color: #708090;
+      color: #1f2937;
       font-family: 'Lora', serif;
       font-style: italic;
       letter-spacing: 5px;
@@ -296,6 +296,22 @@
       .message-display h3 { font-size: 24px; }
       input, select, textarea { font-size: 16px; }
     }
+    .message-scroll-wrapper {
+  height: 250px;
+  overflow: hidden;
+  position: relative;
+}
+
+.message-scroll {
+  display: flex;
+  flex-direction: column;
+  animation: scrollUp 60s linear infinite;
+}
+
+@keyframes scrollUp {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-50%); }
+}
 
   </style>
 </head>
@@ -353,7 +369,9 @@
 
   <div class="message-display" id="messageDisplay">
     <h3>Ucapan Tetamu</h3>
-    <div id="messageList"></div>
+    <div class="message-scroll-wrapper">
+  <div class="message-scroll" id="messageList"></div>
+    </div>
   </div>
 
   <script>
