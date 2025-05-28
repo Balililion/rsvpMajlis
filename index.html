@@ -148,7 +148,7 @@
       font-weight: 600;
       line-height: 1.5;
       text-align: center;
-      color: #6b7820;
+      color: #6b7280;
     }
 
     .rsvp-btn {
@@ -178,14 +178,14 @@
        letter-spacing: 2px;
      }
     .rsvp-form-container {
-      display: none;
-      justify-content: center;
-      text-align: left;
-      align-items: center;
-      height: 100vh;
-      width: 100%;
-      padding: 20px;
-      box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px; /* ruang antara form dan ucapan */
+  padding: 40px 20px;
+  width: 100%;
+  box-sizing: border-box;
+      }
     }
 
     .rsvp-form {
@@ -227,22 +227,19 @@
       cursor: pointer;
     }
 
-    .message-display {
-      display: none;
-      margin: 50px auto;
-      max-width: 800px;
-      max-height: 300px;
-      overflow: hidden;
-      padding: 20px;
-      background: rgba(255,255,255,0.8);
-      border-radius: 12px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.2);
-      font-family: 'Tangerine', cursive;
-      font-size: 25px;
-      font-weight: 700;
-      color: #708090;
-    }
-
+  .message-display {
+  display: none;
+  width: 100%;
+  max-width: 800px;
+  padding: 20px;
+  background: rgba(255,255,255,0.8);
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+  font-family: 'Tangerine', cursive;
+  font-size: 25px;
+  font-weight: 700;
+  color: #708090;
+  }
     .message-display h3 {
       text-align: center;
       font-size: 40px;
